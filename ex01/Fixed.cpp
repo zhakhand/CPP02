@@ -3,6 +3,17 @@
 
 Fixed::Fixed() : _number(0){ std::cout << "Default constructor called\n";}
 
+Fixed::Fixed(const int number) {
+	std::cout << "Int constructor called\n";
+	this->_number = number;
+}
+
+Fixed::Fixed(const float number) {
+	std::cout << "Float constructor called\n";
+	this->_number = roundf(number);
+	this->_frac_bits = (roundf(number) - this->_number) * 10000000;
+}
+
 Fixed::Fixed(const Fixed &other) {
 	std::cout << "Copy constructor called\n";
 	*this = other; 
