@@ -8,10 +8,16 @@ Fixed::Fixed(const Fixed &other) {
 	*this = other; 
 }
 
-Fixed &Fixed::operator=(const Fixed &other) {
+Fixed &Fixed::operator=(const Fixed& other) {
 	std::cout << "Copy assignment operator called\n";
+	if (*this == other)
+		return *this;
 	this->setRawBits( other.getRawBits() );
 	return *this;
+}
+
+bool Fixed::operator==(const Fixed& other) {
+	return this->getRawBits() == other.getRawBits();
 }
 
 Fixed::~Fixed() {std::cout << "Destructor called\n";}

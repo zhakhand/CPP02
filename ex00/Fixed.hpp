@@ -10,6 +10,7 @@ public:
 	Fixed();
 	Fixed(const Fixed &other);
 	Fixed& operator =(const Fixed& other);
+	bool operator==(const Fixed& other);
 	~Fixed();
 
 	int getRawBits( void ) const;
